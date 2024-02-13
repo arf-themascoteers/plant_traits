@@ -1,20 +1,20 @@
 from plant_dataset import PlantDataset
 from torch.utils.data import DataLoader
-from plant_cnn import PlantCNN
+from plant_ann import PlantANN
 import torch
 import torch.nn as nn
 import torch.optim as optim
 
 
 def train():
-    model = PlantCNN()
+    model = PlantANN()
     model.train()
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
     ds = PlantDataset(is_train=True)
     dl = DataLoader(ds, batch_size=100, shuffle=True)
     loss = 0
-    for epoch in range(10):
+    for epoch in range(100):
         for inputs, labels in dl:
             optimizer.zero_grad()
             outputs = model(inputs)

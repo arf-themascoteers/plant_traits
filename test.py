@@ -1,11 +1,11 @@
 import torch
 from plant_dataset import PlantDataset
-from plant_cnn import PlantCNN
+from plant_ann import PlantANN
 from torch.utils.data import DataLoader
 
 
 def test():
-    model = PlantCNN()
+    model = PlantANN()
     model.load_state_dict(torch.load('saved.pth'))
     model.eval()
     test_dataset = PlantDataset(is_train=False)
