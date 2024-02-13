@@ -6,7 +6,7 @@ class PlantANN(nn.Module):
     def __init__(self):
         super(PlantANN, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(52,10),
+            nn.Linear(51,10),
             nn.LeakyReLU(),
             nn.Linear(10,2)
         )

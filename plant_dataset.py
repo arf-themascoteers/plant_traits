@@ -17,7 +17,7 @@ class PlantDataset(Dataset):
             self.group.append(self.label_mapping[group])
         self.group = torch.tensor(self.group)
 
-        columns_to_drop = ['File.Name', 'Genotype ', 'Treatment', 'Replication', 'Group', 'Day']
+        columns_to_drop = ['File.Name', 'Genotype ', 'Treatment', 'Replication', 'Group', 'Day','is_train']
         df = df.drop(columns=columns_to_drop, axis=1)
         self.data = torch.tensor(df.to_numpy(), dtype=torch.float32)
 
